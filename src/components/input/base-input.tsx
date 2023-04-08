@@ -8,10 +8,9 @@ function BaseInput({onInput}: inputInterface){
         contentEditable
         style={{
             outline: "none",
-            borderBottom: hasFocus ? "3px solid red" : "1px solid gray",
-            // borderImage: hasFocus ? "linear-gradient(to right, #d9a7c7, #fffcdc)" : undefined,
+            borderBottom: hasFocus ? "3px solid green" : "1px solid gray",
             // borderImageSlice: 1,
-            // transitionDuration:"0.5s"
+            transitionDuration:"0.5s"
         }}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
