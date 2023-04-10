@@ -4,6 +4,7 @@ export interface inputInterface {
     onInput ?: (currentText:string) => void
     placeholder ?: string
     onEmpty ?: (isEmpty:boolean) => void
+    onFocus ?: (hasFocus:boolean) => void
 }
 
 export interface buttonInterface {

@@ -6,6 +6,7 @@ import BaseCancel from 'components/cancel/base-cancel';
 
 function App() {
   const [isEmpty, setEmpty] = React.useState(true)
+  const [hasFocus, setFocus] = React.useState(false)
   return (
     <div>
         <BaseInput
@@ -16,22 +17,28 @@ function App() {
             onEmpty={(isEmpty)=>{
               setEmpty(isEmpty)
             }}
+            onFocus={(hasFocus)=>{
+              setFocus(hasFocus)
+            }}
         />
         <div
           style={{
             textAlign: "right"
           }}
         >
-          <BaseCancel />
-          <BaseSend 
-            style={
-            isEmpty 
-            ? {} 
-            : {
-              backgroundColor : 'blue',
-              color: 'white'
-            }}
-          />
+          {(hasFocus || !isEmpty) &&  
+            <>
+              <BaseCancel />
+              <BaseSend
+                style={isEmpty
+                  ? {}
+                  : {
+                    backgroundColor: '#065fd4',
+                    color: 'white'
+                }} 
+              />
+            </>
+          }
         </div>
     </div>
   );

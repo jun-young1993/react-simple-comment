@@ -8,7 +8,7 @@ const CustomDiv = styled.div`
     display: inline-block;
   };
 `
-function BaseInput({onInput,placeholder,onEmpty}: inputInterface){
+function BaseInput({onInput,placeholder,onEmpty,onFocus}: inputInterface){
     const [hasFocus, setFocus] = React.useState(false)
     const [text, setText] = React.useState('')
     const [isEmpty, setEmpty] = React.useState(true)
@@ -21,7 +21,9 @@ function BaseInput({onInput,placeholder,onEmpty}: inputInterface){
     React.useEffect(()=>{
         onEmpty && onEmpty(isEmpty)
     },[onEmpty,isEmpty])
-    
+    React.useEffect(()=>{
+        onFocus && onFocus(hasFocus)
+    },[hasFocus,onFocus])
     return (
 
 
