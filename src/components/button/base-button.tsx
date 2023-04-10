@@ -1,7 +1,7 @@
 import React from "react";
 import {buttonInterface} from "interfaces"
 
-function BaseButton({onFocus,style,children}: buttonInterface){
+function BaseButton({onFocus,style,children,onClick}: buttonInterface){
 	const [hasFocus, setFocus] = React.useState(false);
 	React.useEffect(()=>{
 		onFocus && onFocus(hasFocus)
@@ -18,6 +18,7 @@ function BaseButton({onFocus,style,children}: buttonInterface){
 			}}
 			onMouseOver={()=>setFocus(true)}
 			onMouseOut={() => setFocus(false)}
+			onClick={() => onClick && onClick()}
 		>
 			{children}
 		</button>

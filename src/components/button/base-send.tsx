@@ -1,4 +1,4 @@
-import BaseButton from "components/base-button";
+import BaseButton from "components/button/base-button";
 import { buttonInterface } from "interfaces";
 import React from "react";
 

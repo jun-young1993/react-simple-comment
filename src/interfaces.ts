@@ -9,6 +9,11 @@ export interface inputInterface {
 
 export interface buttonInterface {
     onFocus ?: (hasFocus:boolean) => void
+    onClick ?: () => void
     children ?: React.ReactNode
     style ?: React.CSSProperties
+}
+
+export interface commentInterface {
+    text ?: string
 }
