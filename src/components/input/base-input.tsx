@@ -13,6 +13,8 @@ function BaseInput({onInput,placeholder,onEmpty,onFocus}: inputInterface){
     const [text, setText] = React.useState('')
     const [isEmpty, setEmpty] = React.useState(true)
     React.useEffect(()=>{
+        console.log('use Effect text',text)
+        
         if(text === '' && !isEmpty) setEmpty(true)
         if(text !== '' && isEmpty) setEmpty(false)
         

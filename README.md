@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+# react-simple-comment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Example View
 
-## Available Scripts
+![Untitled](react-simple-comment%20f6230630a397401e88db5c41999e1af9/Untitled.png)
 
-In the project directory, you can run:
+## ****Installation****
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**NPM**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+$ npm i react-simple-comment
+```
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```jsx
 
-### `npm run build`
+import {BasicComment,BaseReply, replyInterface} from 'react-simple-comment'
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+function App() {
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  const [data] = React.useState([{
+    id : 1,
+    name : 'jun',
+    text : 'test',
+    date : new Date(),
+    likeCount : 0,
+    dislikeCount : 2
+  }, {
+    id : 2,
+    name : 'jun',
+    text : 'test',
+    date : new Date(),
+    likeCount : 10 
+  }] as replyInterface[])
+  return (
+    <div>
+        <span>댓글 {data.length}개</span>
+        <BasicComment 
+          placeholder="댓글을 입력해주세요..."
+          onSend={(text)=>{
+            console.log('current text',text)
+          }}
+        <div>
+           {data.map((data) => 
+            <BaseReply  
+              onLike={(commentId)=>{
+                console.log('onLike',commentId)
+              }}
+              onDislike={(commentId)=>{
+                console.log('onDisLike',commentId)
+              }}
+              onReplySend={(commentId,text)=>{
+                console.log('onReplySend',commentId,text)
+              }}
+              {...data}
+            />
+            )
+          }
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        </div>
+    </div>
 
-### `npm run eject`
+  );
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+export default App;
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Props
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+…
 
-## Learn More
+## 동기
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+nextjs로 notion블로그화 진행중 댓글기능이 필요한데 간단한 댓글 라이브러리가 없었고 하나 만들어두면 다음 진행 프로젝트에도 재사용이 가능할 것 같다고 생각해서 시작한다
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 기능
+
+### v1.0.1
+
+- 댓글입력 기능
+- 전송 기능
+
+## **to be added**
+
+1. 댓글정렬 기능
+2. 댓글검색 기능
+
+## 개발환경
+
+- nodejs 19.0.3
+-

@@ -1,62 +1,53 @@
 import React from 'react';
-import BaseInput from "./components/input/base-input";
-import BaseSend from 'components/button/base-send';
-import BaseCancel from 'components/button/base-cancel';
-import BaseButton from 'components/button/base-button';
-import BaseComment from 'components/comment/base-comment';
+// import BaseReply from 'components/reply/base-reply';
+// import { replyInterface } from 'interfaces';
+// import BasicComment from 'components/lib/basic-comment';
+import {BasicComment,BaseReply, replyInterface} from 'react-simple-comment'
+
 
 
 function App() {
-  const [isEmpty, setEmpty] = React.useState(true)
-  const [hasFocus, setFocus] = React.useState(false)
-  const [text, setText] = React.useState('')
+
   const [data] = React.useState([{
-    text : 'test'
-  }])
+    id : 1,
+    name : 'jun',
+    text : 'test',
+    date : new Date(),
+    likeCount : 0,
+    dislikeCount : 2
+  }, {
+    id : 2,
+    name : 'jun',
+    text : 'test',
+    date : new Date(),
+    likeCount : 10 
+  }] as replyInterface[])
   return (
     <div>
-        <BaseInput
-            placeholder='댓글을 입력하세요..'
-            onInput={(text)=>{
-              setText(text)
-            }}
-            onEmpty={(isEmpty)=>{
-              setEmpty(isEmpty)
-            }}
-            onFocus={(hasFocus)=>{
-              setFocus(hasFocus)
-            }}
-        />
-        <div
-          style={{
-            textAlign: "right"
+        <span>댓글 {data.length}개</span>
+        <BasicComment 
+          placeholder="댓글을 입력해주세요..."
+          onSend={(text)=>{
+            console.log('current text',text)
           }}
-        >
-          {(hasFocus || !isEmpty) &&  
-            <>
-              <BaseCancel  />
-              <BaseButton
-                onClick={()=>{
-                  console.log('current text',text)
-                }}
-                style={isEmpty
-                  ? {
-                    backgroundColor: '#F0F0F0'
-                  }
-                  : {
-                    backgroundColor: '#065fd4',
-                    color: 'white'
-                }} 
-              >
-                댓글
-              </BaseButton>
-            </>
-          }
-        </div>
+        />
         <div>
-           {/* data.map((commentInfo) => <BaseComment ...commentInfo /> */}
-           
-          
+           {data.map((data) => 
+            <BaseReply  
+              onLike={(commentId)=>{
+                console.log('onLike',commentId)
+              }}
+              onDislike={(commentId)=>{
+                console.log('onDisLike',commentId)
+              }}
+              onReplySend={(commentId,text)=>{
+                console.log('onReplySend',commentId,text)
+              }}
+              {...data}
+            />
+            )
+          }
+
         </div>
     </div>
 
