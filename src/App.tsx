@@ -1,8 +1,6 @@
 import React from 'react';
-// import BaseReply from 'components/reply/base-reply';
-// import { replyInterface } from 'interfaces';
-// import BasicComment from 'components/lib/basic-comment';
-import {BasicComment,BaseReply, replyInterface} from 'react-simple-comment'
+
+import {BasicComment, BaseReply, replyInterface} from 'react-simple-comment'
 
 
 
@@ -27,7 +25,7 @@ function App() {
         <span>댓글 {data.length}개</span>
         <BasicComment 
           placeholder="댓글을 입력해주세요..."
-          onSend={(text)=>{
+          onSend={(text: string | undefined)=>{
             console.log('current text',text)
           }}
         />
