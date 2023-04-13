@@ -3,18 +3,10 @@
   "version": "0.0.16",
   "private": false,
   "main": "dist/cjs/comment.js",
-  "types": "dist/cjs/comment.d.ts",
+  "types": "dist/comment.d.ts",
   "files" : [
     "dist"
   ],
-  "exports" : {
-    "." : {
-      "default" : "./dist/cjs/comment.js",
-      "module" : "./dist/cjs/comment.js",
-      "import" : "./dist/cjs/comment.js",
-      "main" : "./dist/cjs/comment.js"
-    }
-  },
   "description": "Very Simple Comment Component",
   "author": {
     "name": "Kim-Jun-Young",
