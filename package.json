@@ -1,10 +1,9 @@
 {
   "name": "react-simple-comment",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "private": false,
   "main": "dist/cjs/comment.js",
-  "module" : "dist/cjs/comment.js",
-  "types": "dist/comment.d.ts",
+  "types": "dist/cjs/comment.d.ts",
   "files" : [
     "dist"
   ],
@@ -12,7 +11,6 @@
     "." : {
       "default" : "./dist/cjs/comment.js",
       "module" : "./dist/cjs/comment.js",
-      "type" : "./dist/comment.d.ts",
       "import" : "./dist/cjs/comment.js",
       "main" : "./dist/cjs/comment.js"
     }
