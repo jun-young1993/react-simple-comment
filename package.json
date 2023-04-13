@@ -1,10 +1,19 @@
 {
   "name": "react-simple-comment",
-  "version": "0.0.9",
+  "version": "0.0.13",
   "private": false,
-  "main": "dist/comment.js",
-  "types": "dist/comment.d.ts",
-  "browser": "./browser/specific/main.js",
+  "main": "dist/cjs/comment.js",
+  "module" : "dist/mjs/comment.js",
+  "types": "dist/mjs/comment.d.ts",
+  "files" : [
+    "dist"
+  ],
+  "exports" : {
+    "." : {
+      "import" : "./dist/mjs/comment.js",
+      "require" : "./dist/cjs/comment.js"
+    }
+  },
   "description": "Very Simple Comment Component",
   "author": {
     "name": "Kim-Jun-Young",
@@ -13,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jun-young1993/react-simple-comment"
+    "url": "git+https://github.com/jun-young1993/react-simple-comment"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -32,12 +41,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build2": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && fixup.sh",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
     "prepare": "rm -rf dist && mkdir dist && tsc ",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files"
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files"
   },
   "eslintConfig": {
     "extends": [
