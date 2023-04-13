@@ -3,15 +3,18 @@
   "version": "0.0.14",
   "private": false,
   "main": "dist/cjs/comment.js",
-  "module" : "dist/mjs/comment.js",
+  "module" : "dist/cjs/comment.js",
   "types": "dist/comment.d.ts",
   "files" : [
     "dist"
   ],
   "exports" : {
     "." : {
-      "import" : "./dist/mjs/comment.js",
-      "require" : "./dist/cjs/comment.js"
+      "default" : "./dist/cjs/comment.js",
+      "module" : "./dist/cjs/comment.js",
+      "type" : "./dist/comment.d.ts",
+      "import" : "./dist/cjs/comment.js",
+      "main" : "./dist/cjs/comment.js"
     }
   },
   "description": "Very Simple Comment Component",
