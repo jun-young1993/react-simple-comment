@@ -1,6 +1,6 @@
 {
   "name": "react-simple-comment",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "private": false,
   "main": "dist/cjs/comment.js",
   "types": "dist/comment.d.ts",
