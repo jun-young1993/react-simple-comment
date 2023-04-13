@@ -1,9 +1,9 @@
 {
   "name": "react-simple-comment",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "private": false,
-  "main": "dist/components/index.js",
-  "types": "dist/components/index.d.ts",
+  "main": "dist/comment.js",
+  "types": "dist/comment.d.ts",
   "browser": "./browser/specific/main.js",
   "description": "Very Simple Comment Component",
   "author": {
@@ -26,7 +26,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "react-simple-comment": "^0.0.5",
     "styled-components": "^5.3.9",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"

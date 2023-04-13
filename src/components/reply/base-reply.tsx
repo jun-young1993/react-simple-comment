@@ -1,9 +1,8 @@
-import BaseButton from "components/button/base-button";
-import FocusBackgroundColorChangeButton from "components/button/focus-background-change-button";
-import IconDislike from "components/icons/IconDislike";
-import IconLike from "components/icons/IconLike";
-import BasicComment from "components/lib/basic-comment";
-import { replyInterface } from "interfaces";
+import FocusBackgroundColorChangeButton from "../button/focus-background-change-button";
+import IconDislike from "../icons/IconDislike";
+import IconLike from "../icons/IconLike";
+import BasicComment from "../lib/basic-comment";
+import { replyInterface } from "../interfaces";
 import React from "react";
 function timeForToday(value:Date) {
         const today = new Date();

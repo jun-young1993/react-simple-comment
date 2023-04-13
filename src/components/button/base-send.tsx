@@ -1,5 +1,5 @@
-import BaseButton from "components/button/base-button";
-import { buttonInterface } from "interfaces";
+import BaseButton from "./base-button";
+import { buttonInterface } from "../interfaces";
 import React from "react";
 
 function BaseSend({style}: buttonInterface){

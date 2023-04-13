@@ -1,5 +1,5 @@
 import React from "react";
-import {buttonInterface} from "interfaces"
+import {buttonInterface} from "../interfaces"
 
 function BaseButton({onFocus,style,children,onClick}: buttonInterface){
 	const [hasFocus, setFocus] = React.useState(false);

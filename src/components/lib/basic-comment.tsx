@@ -1,8 +1,8 @@
 import React from "react"
-import BaseInput from "components/input/base-input"
-import FocusBackgroundColorChangeButton from "components/button/focus-background-change-button"
-import BaseButton from "components/button/base-button"
-import { BaseComment } from "interfaces"
+import BaseInput from "../input/base-input"
+import FocusBackgroundColorChangeButton from "../button/focus-background-change-button"
+import BaseButton from "../button/base-button"
+import { BaseComment } from "../interfaces"
 
 function BasicComment({placeholder,onSend,onCancel, keepButton}:BaseComment){
 	const [isEmpty, setEmpty] = React.useState(true)

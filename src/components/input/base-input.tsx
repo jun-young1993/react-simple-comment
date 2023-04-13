@@ -1,5 +1,5 @@
 import React from 'react';
-import {inputInterface} from "interfaces"
+import {inputInterface} from "../interfaces"
 import styled from 'styled-components';
 const CustomDiv = styled.div`
   &:empty:before {
