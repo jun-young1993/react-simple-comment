@@ -35,11 +35,11 @@ function BaseReply({id,text,name,date,likeCount, dislikeCount, onLike, onDislike
 		<div>
 			{onLike && <><span><FocusBackgroundColorChangeButton onClick={()=>onLike(id)}><IconLike /></FocusBackgroundColorChangeButton>{likeCount || ''} </span>&nbsp;</>}
 			{onDislike && <><span><FocusBackgroundColorChangeButton onClick={()=>onDislike(id)}><IconDislike /></FocusBackgroundColorChangeButton>{dislikeCount || ''}</span>&nbsp;&nbsp;&nbsp;</>}
-			<FocusBackgroundColorChangeButton
+			{setClickedReply && <FocusBackgroundColorChangeButton
 				onClick={() => setClickedReply(!clickedReply)}
 			>
 				답글
-			</FocusBackgroundColorChangeButton>
+			</FocusBackgroundColorChangeButton>}
 		</div>
 		<div>
 			{clickedReply ?  <BasicComment 
