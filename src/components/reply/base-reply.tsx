@@ -26,7 +26,7 @@ function timeForToday(value:Date) {
 
         return `${Math.floor(betweenTimeDay / 365)}년전`;
  }
-function BaseReply({id,text,name,date,likeCount, dislikeCount, onLike, onDislike, onReplySend}:replyInterface) : JSX.Element
+function BaseReply({id,text,name,date,likeCount, dislikeCount, onLike, onDislike, onReplySend, isReply}:replyInterface) : JSX.Element
 {	const [clickedReply, setClickedReply] = React.useState(false)
 	const dateStr:string = date ? timeForToday(date) : ''
 	return (<>
@@ -35,7 +35,7 @@ function BaseReply({id,text,name,date,likeCount, dislikeCount, onLike, onDislike
 		<div>
 			{onLike && <><span><FocusBackgroundColorChangeButton onClick={()=>onLike(id)}><IconLike /></FocusBackgroundColorChangeButton>{likeCount || ''} </span>&nbsp;</>}
 			{onDislike && <><span><FocusBackgroundColorChangeButton onClick={()=>onDislike(id)}><IconDislike /></FocusBackgroundColorChangeButton>{dislikeCount || ''}</span>&nbsp;&nbsp;&nbsp;</>}
-			{setClickedReply && <FocusBackgroundColorChangeButton
+			{isReply && <FocusBackgroundColorChangeButton
 				onClick={() => setClickedReply(!clickedReply)}
 			>
 				답글
@@ -52,5 +52,7 @@ function BaseReply({id,text,name,date,likeCount, dislikeCount, onLike, onDislike
 		</div>
 	</>)
 }
-
+BaseReply.defaultProps = {
+	isReply : true
+}
 export default BaseReply

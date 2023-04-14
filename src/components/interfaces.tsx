@@ -26,6 +26,7 @@ export interface replyInterface {
     date ?: Date
     likeCount ?: number
     dislikeCount ?: number
+    isReply :boolean
     onLike ?: (commentId ?: commentId) => void
     onDislike ?: (commentId ?: commentId) => void
     onReplySend ?: (commentId?:commentId , text?:string) => void
