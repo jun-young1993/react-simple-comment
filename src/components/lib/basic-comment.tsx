@@ -4,7 +4,7 @@ import FocusBackgroundColorChangeButton from "../button/focus-background-change-
 import BaseButton from "../button/base-button"
 import { BaseComment } from "../interfaces"
 
-function BasicComment({placeholder,onSend,onCancel, keepButton}:BaseComment){
+function BasicComment({placeholder,onSend,onCancel, keepButton, onEnter, onEscape}:BaseComment){
 	const [isEmpty, setEmpty] = React.useState(true)
 	const [hasFocus, setFocus] = React.useState(false)
 	const [text, setText] = React.useState('')
@@ -13,7 +13,6 @@ function BasicComment({placeholder,onSend,onCancel, keepButton}:BaseComment){
 		setUniqId(uniqId+1)
 	}
 
-	console.log(hasFocus,isEmpty,keepButton,uniqId)
 	return (
 		<>
 			<BaseInput
@@ -23,11 +22,18 @@ function BasicComment({placeholder,onSend,onCancel, keepButton}:BaseComment){
 					setText(text)
 				}}
 				onEmpty={(isEmpty)=>{
-					console.log('isEmpty',isEmpty)
 					setEmpty(isEmpty)
 				}}
 				onFocus={(hasFocus)=>{
 					setFocus(hasFocus)
+				}}
+				onKeyUp={(e)=>{
+					if(e.key === 'Enter'){
+						onEnter && onEnter(text)
+					}
+					if(e.key === 'Escape'){
+						onEscape && onEscape()
+					}
 				}}
 			/>
 			<div

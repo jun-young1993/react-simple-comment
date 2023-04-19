@@ -9,22 +9,22 @@ function timeForToday(value:Date) {
         const timeValue = new Date(value);
 
         const betweenTime = Math.floor((today.getTime() - timeValue.getTime()) / 1000 / 60);
-        if (betweenTime < 1) return '방금전';
+        if (betweenTime < 1) return 'a minute ago';
         if (betweenTime < 60) {
-            return `${betweenTime}분전`;
+            return `${betweenTime} minute ago`;
         }
 
         const betweenTimeHour = Math.floor(betweenTime / 60);
         if (betweenTimeHour < 24) {
-            return `${betweenTimeHour}시간전`;
+            return `${betweenTimeHour} hour ago`;
         }
 
         const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
         if (betweenTimeDay < 365) {
-            return `${betweenTimeDay}일전`;
+            return `${betweenTimeDay} year ago`;
         }
 
-        return `${Math.floor(betweenTimeDay / 365)}년전`;
+        return `${Math.floor(betweenTimeDay / 365)} year ago`;
  }
 function BaseReply({id,text,name,date,likeCount, dislikeCount, onLike, onDislike, onReplySend, isReply}:replyInterface) : JSX.Element
 {	const [clickedReply, setClickedReply] = React.useState(false)
@@ -38,7 +38,7 @@ function BaseReply({id,text,name,date,likeCount, dislikeCount, onLike, onDislike
 			{isReply && <FocusBackgroundColorChangeButton
 				onClick={() => setClickedReply(!clickedReply)}
 			>
-				답글
+				reply
 			</FocusBackgroundColorChangeButton>}
 		</div>
 		<div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {inputInterface} from "../interfaces"
 import styled from 'styled-components';
+import ReactDOM from 'react-dom';
 const CustomDiv = styled.div`
   &:empty:before {
     content: attr(placeholder);
@@ -8,12 +9,12 @@ const CustomDiv = styled.div`
     display: inline-block;
   };
 `
-function BaseInput({onInput,placeholder,onEmpty,onFocus}: inputInterface){
+function BaseInput({onInput,placeholder,onEmpty,onFocus,onKeyUp}: inputInterface){
     const [hasFocus, setFocus] = React.useState(false)
     const [text, setText] = React.useState('')
     const [isEmpty, setEmpty] = React.useState(true)
+
     React.useEffect(()=>{
-        console.log('use Effect text',text)
         
         if(text === '' && !isEmpty) setEmpty(true)
         if(text !== '' && isEmpty) setEmpty(false)
@@ -26,11 +27,13 @@ function BaseInput({onInput,placeholder,onEmpty,onFocus}: inputInterface){
     React.useEffect(()=>{
         onFocus && onFocus(hasFocus)
     },[hasFocus,onFocus])
+    
     return (
 
 
         <CustomDiv
             contentEditable
+            // suppressContentEditableWarning
             placeholder={placeholder}
             style={{
                 outline: "none",
@@ -38,6 +41,12 @@ function BaseInput({onInput,placeholder,onEmpty,onFocus}: inputInterface){
                 // borderImageSlice: 1,
                 transitionDuration:"0.5s",
                 marginBottom: "10px"
+            }}
+            onKeyUp={(e)=> {
+                onKeyUp && onKeyUp(e)
+                if(e.key === 'Enter'){
+                    e.currentTarget.removeChild(e.currentTarget.lastChild as Node);
+                }
             }}
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}

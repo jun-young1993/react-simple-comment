@@ -18,7 +18,6 @@ function FocusBackgroundColorChangeButton({children,defaultColor,focusColor,onCl
 				setFocus(focus)
 			}}
 			onClick={() => {
-				console.log('focus-background-change-button click')
 				onClick && onClick()
 			}}
 		>

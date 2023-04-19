@@ -4,7 +4,7 @@
   "private": false,
   "main": "dist/cjs/comment.js",
   "types": "dist/comment.d.ts",
-  "files" : [
+  "files": [
     "dist"
   ],
   "description": "Very Simple Comment Component",
